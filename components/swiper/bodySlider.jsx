@@ -23,6 +23,7 @@ const BodySlider = ({ data }) => {
                         spaceBetween={10}
                     >
                         {
+                            
                             data.map((person, index) => (
 
                                 <div key={index}>
