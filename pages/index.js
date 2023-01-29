@@ -3,7 +3,7 @@ import Slider from '../components/swiper/slider';
 import { axiosInstance } from '../libs/axiosInstance';
 import { REQUEST_HOME } from '../libs/Requests';
 
-export default function Home({ data: { content, vitrine } }) {
+export default function Home({data :{content , vitrine}}) {
 
   return (
     <div>
@@ -24,6 +24,7 @@ export default function Home({ data: { content, vitrine } }) {
 
 export async function getServerSideProps() {
   let res = await axiosInstance.get(REQUEST_HOME);
+  console.log(55555,res);
   return {
     props: {
       data: res.data

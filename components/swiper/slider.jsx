@@ -15,11 +15,11 @@ const Slider = ({ data }) => {
       slidesPerView={1}
       modules={[Navigation, Pagination, Scrollbar]}
       navigation
-      pagination={{ clickable: true }}
+      pagination={{clickable: true}}
       scrollbar={{ draggable: true }}
     >
       {
-        data.map((item) => <SwiperSlide key={item.id}><SliderComponent  data={item} /></SwiperSlide>)
+        data.map((item) => <SwiperSlide key={item.id}><SliderComponent data={item} /></SwiperSlide>)
       }
     </Swiper>
   )

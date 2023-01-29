@@ -1,26 +1,16 @@
-import { useRouter } from 'next/router'
+import Link from 'next/link';
+import Image from "next/image"
+
 const BodyComponent = (props) => {
-    const router = useRouter()
-
-    // console.log(props);
-
-
-  let Go_Category=(e,id)=>{
-    e.preventDefault()
-      
-   props.data.items.map((item)=>router.push({
-    pathname: '/showCategory', item
-}))
-
-  }
+    // console.log(props)
     return (
         <div className='contentStyle'>
-
-           <a onClick={(e)=>Go_Category(e,props.data)} href=""><img src={props.data.image} alt="" /></a> 
+            {/* <Link href={`products/${data.slug}`}>
+                <Image width={120} height={200} src={data.image} alt="There is no photo" />
+                <p>{data.title}</p>
+            </Link> */}
+            {/* <img src={data.image} alt="" /> */}
         </div>
     )
 }
-
 export default BodyComponent;
-
-// { data: { image } }

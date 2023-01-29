@@ -1,10 +1,10 @@
+import { useRouter } from "next/router";
 
- const Category= (props)=>{
-    
-  console.log(props.data);
-    return(
+const Category = () => {
+    const router = useRouter()
+    return (
         <>
-        <div><img className="w-100" src={props.data.image} alt="" /></div>
+            <div><img className="w-100" src={props.data.image} alt="" /></div>
         </>
     )
 }

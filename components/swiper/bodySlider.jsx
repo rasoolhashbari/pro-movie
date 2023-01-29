@@ -7,14 +7,13 @@ import 'swiper/css/navigation';
 
 import BodyComponent from '../BodyComponent';
 import { defaultBreakPoint } from '../../libs/constants';
-import Category from '../category';
 
 const BodySlider = ({ data }) => {
+    console.log(data);
     return (
         <>
             {
-                <div >
-                    <h4>دسته بندی</h4>
+                <div>
                     <Swiper
                         breakpoints={defaultBreakPoint}
                         modules={[Navigation]}
@@ -24,10 +23,24 @@ const BodySlider = ({ data }) => {
                         spaceBetween={10}
                     >
                         {
-                            data.map((item) => <SwiperSlide key={item.id}><BodyComponent data={item} /></SwiperSlide>)
+                            data.map((person, index) => (
+
+                                <div key={index}>
+                                        {
+                                            person.items.map((itemShow, index) => {
+                                                // console.log();
+                                                return <SwiperSlide key={index + person.id}><BodyComponent dataItem={itemShow}/></SwiperSlide>
+                                            })
+                                        }
+
+                                </div>
+                            ))
+
+                            // data.map(e=> console.log(e))
                         }
                     </Swiper>
                 </div>
+
             }
 
         </>
@@ -36,5 +49,10 @@ const BodySlider = ({ data }) => {
 
 export default BodySlider
 
+// var doubledArray = array.map(function (nested) {
+//     return nested.map(function (element) {
+//         return element * 2;
+//     });
+// });
 
 
