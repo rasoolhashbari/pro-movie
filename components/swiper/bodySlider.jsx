@@ -8,52 +8,74 @@ import 'swiper/css/navigation';
 import BodyComponent from '../BodyComponent';
 import { defaultBreakPoint } from '../../libs/constants';
 
-const BodySlider = ({ data }) => {
+const BodySlider = ({data}) => {
     console.log(data);
     return (
         <>
             {
-                <div>
-                    <Swiper
-                        breakpoints={defaultBreakPoint}
-                        modules={[Navigation]}
-                        navigation
-                        speed={1000}
-                        pagination={{ clickable: true }}
-                        spaceBetween={10}
-                    >
-                        {
-                            
-                            data.map((person, index) => (
-
-                                <div key={index}>
-                                        {
-                                            person.items.map((itemShow, index) => {
-                                                // console.log();
-                                                return <SwiperSlide key={index + person.id}><BodyComponent dataItem={itemShow}/></SwiperSlide>
-                                            })
-                                        }
-
-                                </div>
-                            ))
-
-                            // data.map(e=> console.log(e))
-                        }
-                    </Swiper>
-                </div>
-
+                data.map((item, i) => {
+                    return (
+                        <div key={i} className='titleStyle'>
+                            <p className={`borderStyle ${i == 0 ? 'border-top-none' : ''}`}>{item.title}</p>
+                            <Swiper
+                                breakpoints={defaultBreakPoint}
+                                modules={[Navigation]}
+                                navigation
+                                slidesPerView= 'auto'
+                                speed={1000}
+                                pagination={{ clickable: true }}
+                                spaceBetween={10}
+                            >
+                                {
+                                    item.items.map((item) => <SwiperSlide key={item.id}><BodyComponent data={item} /></SwiperSlide>)
+                                }
+                            </Swiper>
+                        </div>
+                    );
+                })
             }
-
         </>
     )
 }
 
 export default BodySlider
 
-// var doubledArray = array.map(function (nested) {
-//     return nested.map(function (element) {
-//         return element * 2;
-//     });
-// });
 
 
+
+
+
+
+// {
+               
+//     <Swiper
+//         breakpoints={defaultBreakPoint}
+//         modules={[Navigation]}
+//         navigation
+//         speed={1000}
+//         pagination={{ clickable: true }}
+//         spaceBetween={10}
+//     >
+//         {
+//             data.map((person, index) =>
+//             (
+//                 <div className='rasooooooooooool' key={index}>
+//                     <div>
+//                     <h1>eeeee</h1>
+//                     </div>
+//                     {
+//                         person.items.map((itemShow, index) => 
+//                              (
+//                                 <div key={index + person.id}>
+//                                     <SwiperSlide>bbbbbbbbb</SwiperSlide>
+//                                 </div>
+//                             )
+//                         )
+//                     }
+//                 </div>
+//             ))
+//         }
+//     </Swiper>
+
+
+// }
